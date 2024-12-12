@@ -1,0 +1,25 @@
+{
+	"name": "@pronamic/pronamic-disable-password-change-admin-notification",
+	"version": "1.2.0",
+	"description": "Prevents WordPress from sending email notifications to the site admin when a user changes their password.",
+	"author": "Pronamic",
+	"license": "GPL-2.0-or-later",
+	"keywords": [
+		"pronamic"
+	],
+	"homepage": "https://github.com/pronamic/pronamic-disable-password-change-admin-notification#readme",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/pronamic/pronamic-disable-password-change-admin-notification.git"
+	},
+	"bugs": {
+		"url": "https://github.com/pronamic/pronamic-disable-password-change-admin-notification/issues"
+	},
+	"devDependencies": {
+		"@wordpress/env": "^10.13.0",
+		"@wordpress/scripts": "^30.6.0"
+	},
+	"scripts": {
+		"lint:pkg-json": "wp-scripts lint-pkg-json"
+	}
+}

@@ -1,0 +1,44 @@
+{
+	"name": "pronamic/pronamic-disable-password-change-admin-notification",
+	"description": "Prevents WordPress from sending email notifications to the site admin when a user changes their password.",
+	"type": "wordpress-plugin",
+	"license": "GPL-2.0-or-later",
+	"authors": [
+		{
+			"name": "Pronamic",
+			"email": "info@pronamic.nl"
+		}
+	],
+	"config": {
+		"allow-plugins": {
+			"dealerdirect/phpcodesniffer-composer-installer": true,
+			"automattic/jetpack-autoloader": true
+		},
+		"wp-slug": "pronamic-disable-password-change-admin-notification"
+	},
+	"require-dev": {
+		"pronamic/wp-coding-standards": "^2.2",
+		"pronamic/pronamic-cli": "^1.1"
+	},
+	"require": {
+		"pronamic/pronamic-wp-updater": "^1.0",
+		"automattic/jetpack-autoloader": "^3.1"
+	},
+	"scripts": {
+		"build": [
+			"rm -rf ./build",
+			"mkdir ./build",
+			"mkdir ./build/stage-1",
+			"mkdir ./build/stage-2",
+			"rsync --recursive --verbose --exclude-from=.distignore --exclude-from=.gitignore ./ ./build/stage-1/",
+			"composer install --no-dev --prefer-dist --optimize-autoloader --working-dir=./build/stage-1/",
+			"rsync --recursive --verbose --exclude-from=.distignore ./build/stage-1/ ./build/stage-2/",
+			"vendor/bin/wp dist-archive ./build/stage-2/ --plugin-dirname=pronamic-disable-password-change-admin-notification"
+		],
+		"dist-archive": "wp dist-archive . --plugin-dirname=pronamic-disable-password-change-admin-notification",
+		"make-pot": [
+			"@build",
+			"rsync --recursive --delete --verbose ./build/stage-2/languages/ ./languages/"
+		]
+	}
+}

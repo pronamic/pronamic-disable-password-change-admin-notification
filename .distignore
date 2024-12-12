@@ -1,0 +1,17 @@
+.distignore
+
+.DS_Store
+
+.editorconfig
+
+.git/
+.github/
+.gitattributes
+.gitignore
+
+.phpcs.dir.phpcompatibility.xml
+.phpcs.dir.xml
+
+.wp-env.json
+
+phpcs.xml.dist
