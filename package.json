@@ -16,7 +16,7 @@
 		"url": "https://github.com/pronamic/pronamic-disable-password-change-admin-notification/issues"
 	},
 	"devDependencies": {
-		"@wordpress/env": "^10.14.0",
+		"@wordpress/env": "^12.2.0",
 		"@wordpress/scripts": "^37.2.0"
 	},
 	"scripts": {
